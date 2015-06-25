@@ -54,28 +54,48 @@ default :
 
 let anotherPoint = (2, 0)
 switch anotherPoint {
-case (let x, 0):
-    println("on the x-axis with an x value of \(x)")
-case (0, let y):
-    println("on the y-axis with a y value of \(y)")
-case let (x, y):
-    println("somewhere else at (\(x), \(y))")
+    
+    case (let x, 0):
+        println("on the x-axis with an x value of \(x)")
+    case (0, let y):
+        println("on the y-axis with a y value of \(y)")
+    case let (x, y):
+        println("somewhere else at (\(x), \(y))")
 }
 
 //5. where
 
 let yetAnotherPoint = (1, -1)
 switch yetAnotherPoint {
-case let (x, y) where x == y:
-    println("(\(x), \(y)) is on the line x == y")
-case let (x, y) where x == -y:
-    println("(\(x), \(y)) is on the line x == -y")
-case let (x, y):
-    println("(\(x), \(y)) is just some arbitrary point")
+    
+    case let (x, y) where x == y:
+        println("(\(x), \(y)) is on the line x == y")
+    case let (x, y) where x == -y:
+        println("(\(x), \(y)) is on the line x == -y")
+    case let (x, y):
+        println("(\(x), \(y)) is just some arbitrary point")
 }
 
+//6. break 仍然可以写，在没有操作的时候
 
+//7. Fallthrough  落入下一个分支
 
+let integerToDescribe = 5
+var description = "The number \(integerToDescribe) is"
+switch integerToDescribe {
+    
+    case 2, 3, 5, 7, 11, 13, 17, 19:
+        description += " a prime number, and also"
+        fallthrough
+    default:
+        description += " an integer."
+}
+println(description)
 
+// 8. Labeled Statements 可以多研究下
 
+//标签
+gameLoop: while 1 {
 
+    
+}
